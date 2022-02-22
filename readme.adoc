@@ -1,0 +1,8 @@
+= Jackson Singleton Access
+
+Provides a singleton over FasterXML Jackson's JSON api.
+
+This is intended to unify the access of Jackson object mappers to avoid multiple
+separately configured instances floating about in a single project.
+
+Provides several helpers for both Kotlin and Java.
