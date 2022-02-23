@@ -75,7 +75,11 @@ object Json {
   fun newObject() = ObjectNode(Mapper.nodeFactory)
 
   @JvmStatic
-  inline fun <reified T> from(input: String): T =
+  fun from(input: Any): JsonNode =
+    Mapper.convertValue(input, JsonNode::class.java)
+
+  @JvmStatic
+  inline fun <reified T> parse(input: String): T =
     when (T::class) {
       ObjectNode::class -> Mapper.readTree(input) as T
       ArrayNode::class  -> Mapper.readTree(input) as T
@@ -83,7 +87,7 @@ object Json {
     }
 
   @JvmStatic
-  inline fun <reified T> from(input: InputStream): T =
+  inline fun <reified T> parse(input: InputStream): T =
     when (T::class) {
       ObjectNode::class -> Mapper.readTree(input) as T
       ArrayNode::class  -> Mapper.readTree(input) as T
@@ -99,7 +103,7 @@ object Json {
    * @return The converted value.
    */
   @JvmStatic
-  inline fun <reified T> from(input: JsonNode): T =
+  inline fun <reified T> parse(input: JsonNode): T =
     Mapper.convertValue(input, T::class.java)
 
   /**
@@ -112,6 +116,6 @@ object Json {
    * @return The converted value.
    */
   @JvmStatic
-  fun <T> from(input: JsonNode, cls: Class<T>): T =
+  fun <T> parse(input: JsonNode, cls: Class<T>): T =
     Mapper.convertValue(input, cls)
 }
