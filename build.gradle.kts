@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "org.veupathdb.lib"
-version = "2.0.0"
+version = "2.0.1"
 
 repositories {
   mavenCentral()
@@ -20,6 +20,18 @@ dependencies {
   api("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.13.1")
   api("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1")
   api("com.fasterxml.jackson.module:jackson-module-parameter-names:2.13.1")
+}
+
+java {
+  toolchain {
+    languageVersion.set(JavaLanguageVersion.of(8))
+  }
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+  kotlinOptions {
+    jvmTarget = "1.8"
+  }
 }
 
 java {
