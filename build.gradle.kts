@@ -14,12 +14,12 @@ repositories {
 dependencies {
   implementation(kotlin("stdlib"))
 
-  api("com.fasterxml.jackson.core:jackson-databind:2.13.1")
-  api("com.fasterxml.jackson.datatype:jackson-datatype-json-org:2.13.1")
-  api("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.1")
-  api("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.13.1")
-  api("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1")
-  api("com.fasterxml.jackson.module:jackson-module-parameter-names:2.13.1")
+  api("com.fasterxml.jackson.core:jackson-databind:2.13.2")
+  api("com.fasterxml.jackson.datatype:jackson-datatype-json-org:2.13.2")
+  api("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.2")
+  api("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.13.2")
+  api("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.2")
+  api("com.fasterxml.jackson.module:jackson-module-parameter-names:2.13.2")
 }
 
 java {
