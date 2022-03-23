@@ -67,6 +67,25 @@ object Json {
   fun newArray(size: Int = 1) = ArrayNode(Mapper.nodeFactory, size)
 
   /**
+   * Creates a new [ArrayNode] instance and applies the given configuration
+   * function to it.
+   *
+   * @param size Presize the newly created [ArrayNode] to this size.
+   *
+   * @param fn Configuration function.
+   *
+   * @return The newly created [ArrayNode].
+   */
+  @JvmStatic
+  inline fun newArray(size: Int = 1, fn: ArrayNode.() -> Unit): ArrayNode {
+    val out = newArray(size)
+
+    out.fn()
+
+    return out
+  }
+
+  /**
    * Creates a new [ObjectNode] instance
    *
    * @return The newly created [ObjectNode]
@@ -74,10 +93,43 @@ object Json {
   @JvmStatic
   fun newObject() = ObjectNode(Mapper.nodeFactory)
 
+  /**
+   * Creates a new [ObjectNode] instance and applies the given configuration
+   * function to it.
+   *
+   * @param fn Configuration function.
+   *
+   * @return The newly created [ObjectNode].
+   */
+  @JvmStatic
+  inline fun newObject(fn: ObjectNode.() -> Unit): ObjectNode {
+    val out = newObject()
+
+    out.fn()
+
+    return out
+  }
+
+  /**
+   * Converts the given [input] to a [JsonNode] instance.
+   *
+   * @param input Value/stream to convert or parse into a [JsonNode] instance.
+   *
+   * @return Parsed/converted [JsonNode] value.
+   */
   @JvmStatic
   fun from(input: Any): JsonNode =
     Mapper.convertValue(input, JsonNode::class.java)
 
+  /**
+   * Parses the given input string into a value of type [T].
+   *
+   * @param input Json string to parse.
+   *
+   * @param T Type of the value to parse the Json into.
+   *
+   * @return The parsed value.
+   */
   @JvmStatic
   inline fun <reified T> parse(input: String): T =
     when (T::class) {
@@ -86,6 +138,15 @@ object Json {
       else              -> Mapper.readValue(input, T::class.java)
     }
 
+  /**
+   * Parses the given [InputStream] into a value of type [T].
+   *
+   * @param input Json stream to parse.
+   *
+   * @param T Type of the value to parse the Json into.
+   *
+   * @return The parsed value.
+   */
   @JvmStatic
   inline fun <reified T> parse(input: InputStream): T =
     when (T::class) {

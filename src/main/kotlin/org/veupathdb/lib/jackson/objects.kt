@@ -7,6 +7,15 @@ import com.fasterxml.jackson.databind.node.ObjectNode
 import java.math.BigDecimal
 import java.math.BigInteger
 
+/**
+ * Sets the given key/value pair on this [ObjectNode].
+ *
+ * @param key Key to set the new value under.
+ *
+ * @param value Byte value to set.
+ *
+ * @return This [ObjectNode].
+ */
 inline fun ObjectNode.put(key: String, value: Byte): ObjectNode =
   put(key, value.toShort())
 
