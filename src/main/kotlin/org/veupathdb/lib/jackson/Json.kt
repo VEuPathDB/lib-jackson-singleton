@@ -11,6 +11,7 @@ import com.fasterxml.jackson.module.kotlin.KotlinFeature
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule
 import java.io.InputStream
+import java.io.Reader
 
 /**
  * Jackson JSON Singleton Access
@@ -119,7 +120,11 @@ object Json {
    */
   @JvmStatic
   fun from(input: Any): JsonNode =
-    Mapper.convertValue(input, JsonNode::class.java)
+    when (input) {
+      is InputStream -> Mapper.readTree(input)
+      is Reader      -> Mapper.readTree(input)
+      else           -> Mapper.convertValue(input, JsonNode::class.java)
+    }
 
   /**
    * Parses the given input string into a value of type [T].
