@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "org.veupathdb.lib"
-version = "2.3.0"
+version = "3.0.0"
 
 repositories {
   mavenCentral()

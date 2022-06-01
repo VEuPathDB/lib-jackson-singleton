@@ -119,12 +119,8 @@ object Json {
    * @return Parsed/converted [JsonNode] value.
    */
   @JvmStatic
-  fun from(input: Any): JsonNode =
-    when (input) {
-      is InputStream -> Mapper.readTree(input)
-      is Reader      -> Mapper.readTree(input)
-      else           -> Mapper.convertValue(input, JsonNode::class.java)
-    }
+  fun convert(input: Any): JsonNode =
+    Mapper.convertValue(input, JsonNode::class.java)
 
   /**
    * Parses the given input string into a value of type [T].
