@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "org.veupathdb.lib"
-version = "3.0.0"
+version = "3.0.1"
 
 repositories {
   mavenCentral()
@@ -14,12 +14,12 @@ repositories {
 dependencies {
   implementation(kotlin("stdlib"))
 
-  api("com.fasterxml.jackson.core:jackson-databind:2.13.3")
-  api("com.fasterxml.jackson.datatype:jackson-datatype-json-org:2.13.3")
-  api("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.3")
-  api("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.13.3")
-  api("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.3")
-  api("com.fasterxml.jackson.module:jackson-module-parameter-names:2.13.3")
+  api("com.fasterxml.jackson.core:jackson-databind:2.13.4")
+  api("com.fasterxml.jackson.datatype:jackson-datatype-json-org:2.13.4")
+  api("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.4")
+  api("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.13.4")
+  api("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.4")
+  api("com.fasterxml.jackson.module:jackson-module-parameter-names:2.13.4")
 }
 
 java {
