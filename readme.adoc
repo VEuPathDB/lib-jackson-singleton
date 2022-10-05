@@ -1,4 +1,9 @@
 = Jackson Singleton Access
+:source-highlighter: highlightjs
+
+image:https://img.shields.io/github/license/veupathdb/lib-jackson-singleton[]
+image:https://img.shields.io/github/v/tag/veupathdb/lib-jackson-singleton[]
+
 
 Provides a singleton over FasterXML Jackson's JSON api.
 
@@ -6,3 +11,19 @@ This is intended to unify the access of Jackson object mappers to avoid multiple
 separately configured instances floating about in a single project.
 
 Provides several helpers for both Kotlin and Java.
+
+== Usage
+
+[source, kotlin]
+----
+import org.veupathdb.lib.jackson.Json
+
+// Creates a JSON object
+fun createObject(): ObjectNode = Json.new {
+  put("key", "value")
+}
+
+// Parses a `Person` instance
+fun parseJson(): Person =
+  Json.parse(File("foo.json").inputStream())
+----
