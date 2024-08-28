@@ -16,6 +16,9 @@ Provides a singleton over a universally configured FasterXML Jackson JSON
 This is intended to unify the access of Jackson object mappers to avoid multiple
 separately configured instances floating about in a single project.
 
+Additionally, provides a set of helper/utility methods for working with Jackson
+APIs in Kotlin.
+
 == Usage
 
 .build.gradle.kts
