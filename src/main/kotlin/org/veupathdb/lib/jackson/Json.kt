@@ -12,6 +12,8 @@ import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule
 import java.io.InputStream
 import java.io.Reader
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /**
  * Jackson JSON Singleton Access
@@ -19,7 +21,7 @@ import java.io.Reader
 object Json {
 
   @JvmStatic
-  val Mapper = ObjectMapper()
+  val Mapper: ObjectMapper = ObjectMapper()
     .registerModule(JsonOrgModule())
     .registerModule(JavaTimeModule())
     .registerModule(Jdk8Module())
@@ -45,6 +47,10 @@ object Json {
    */
   @JvmStatic
   inline fun <reified T : JsonNode> new(action: T.() -> Unit = {}): T {
+    contract {
+      callsInPlace(action, InvocationKind.EXACTLY_ONCE)
+    }
+
     val tmp = when (T::class) {
       ObjectNode::class -> Mapper.createObjectNode()
       ArrayNode::class  -> Mapper.createArrayNode()
@@ -65,7 +71,7 @@ object Json {
    */
   @JvmStatic
   @JvmOverloads
-  fun newArray(size: Int = 1) = ArrayNode(Mapper.nodeFactory, size)
+  fun newArray(size: Int = 8) = ArrayNode(Mapper.nodeFactory, size)
 
   /**
    * Creates a new [ArrayNode] instance and applies the given configuration
@@ -78,7 +84,11 @@ object Json {
    * @return The newly created [ArrayNode].
    */
   @JvmStatic
-  inline fun newArray(size: Int = 1, fn: ArrayNode.() -> Unit): ArrayNode {
+  inline fun newArray(size: Int = 8, fn: ArrayNode.() -> Unit): ArrayNode {
+    contract {
+      callsInPlace(fn, InvocationKind.EXACTLY_ONCE)
+    }
+
     val out = newArray(size)
 
     out.fn()
@@ -103,13 +113,7 @@ object Json {
    * @return The newly created [ObjectNode].
    */
   @JvmStatic
-  inline fun newObject(fn: ObjectNode.() -> Unit): ObjectNode {
-    val out = newObject()
-
-    out.fn()
-
-    return out
-  }
+  inline fun newObject(fn: ObjectNode.() -> Unit) = newObject().apply(fn)
 
   /**
    * Converts the given [input] to a [JsonNode] instance.

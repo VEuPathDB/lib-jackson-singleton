@@ -1,42 +1,48 @@
 plugins {
   `java-library`
   `maven-publish`
-  kotlin("jvm") version "1.9.20"
+  kotlin("jvm") version "2.0.20"
+  id("org.jetbrains.dokka") version "1.9.20"
 }
 
 group = "org.veupathdb.lib"
-version = "3.1.1"
+version = "3.2.0"
 
 repositories {
   mavenCentral()
 }
 
 dependencies {
-  implementation(kotlin("stdlib"))
-
-  api("com.fasterxml.jackson.core:jackson-databind:2.15.3")
-  api("com.fasterxml.jackson.datatype:jackson-datatype-json-org:2.15.3")
-  api("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.15.3")
-  api("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.15.3")
-  api("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.3")
-  api("com.fasterxml.jackson.module:jackson-module-parameter-names:2.15.3")
+  api(platform("com.fasterxml.jackson:jackson-bom:2.17.2"))
+  api("com.fasterxml.jackson.core:jackson-databind")
+  api("com.fasterxml.jackson.datatype:jackson-datatype-json-org")
+  api("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
+  api("com.fasterxml.jackson.datatype:jackson-datatype-jdk8")
+  api("com.fasterxml.jackson.module:jackson-module-kotlin")
+  api("com.fasterxml.jackson.module:jackson-module-parameter-names")
 }
 
 java {
   toolchain {
-    languageVersion.set(JavaLanguageVersion.of(8))
+    languageVersion.set(JavaLanguageVersion.of(21))
+    vendor.set(JvmVendorSpec.AMAZON)
   }
-}
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
-  kotlinOptions {
-    jvmTarget = "1.8"
-  }
-}
-
-java {
   withSourcesJar()
   withJavadocJar()
+}
+
+kotlin {
+  jvmToolchain(21)
+
+  compilerOptions {
+    optIn = listOf("kotlin.contracts.ExperimentalContracts")
+  }
+}
+
+tasks.dokkaHtml {
+  val featVersion = (version as String).substring(0, (version as String).lastIndexOf('.')) + ".0"
+  outputDirectory.set(file("docs/dokka/v$featVersion"))
 }
 
 publishing {
@@ -62,7 +68,7 @@ publishing {
           developer {
             id.set("epharper")
             name.set("Elizabeth Paige Harper")
-            email.set("epharper@upenn.edu")
+            email.set("foxcapades.io@gmail.com")
             url.set("https://github.com/foxcapades")
             organization.set("VEuPathDB")
           }

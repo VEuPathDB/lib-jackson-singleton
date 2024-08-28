@@ -8,6 +8,61 @@ import java.math.BigDecimal
 import java.math.BigInteger
 
 /**
+ * Creates a new [ObjectNode] containing elements for each of the key/value
+ * [Pair] instances in the receiver stream.
+ *
+ * *Simple Example*
+ * ```kt
+ * listOf("a" to 1, "b" to 2, "c" to 3).toJsonObject() // {"a": 1, "b": 2, "c": 3}
+ * ```
+ *
+ * In the event of conflicting keys, previously set values will be overwritten
+ * by values appearing later.
+ *
+ * @return A new [ObjectNode] containing elements for each of the key/value
+ * [Pair] instances in the receiver stream.
+ *
+ * @since v3.3.0
+ */
+inline fun Sequence<Pair<String, Any?>>.toJsonObject() =
+  Json.newObject { this@toJsonObject.forEach { (k, v) -> put(k, v) } }
+
+/**
+ * Creates a new [ObjectNode] containing elements for each of the key/value
+ * [Pair] instances in the receiver stream.
+ *
+ * *Simple Example*
+ * ```kt
+ * listOf("a" to 1, "b" to 2, "c" to 3).toJsonObject() // {"a": 1, "b": 2, "c": 3}
+ * ```
+ *
+ * In the event of conflicting keys, previously set values will be overwritten
+ * by values appearing later.
+ *
+ * @return A new [ObjectNode] containing elements for each of the key/value
+ * [Pair] instances in the receiver stream.
+ *
+ * @since v3.3.0
+ */
+inline fun Iterable<Pair<String, Any?>>.toJsonObject() =
+  Json.newObject { this@toJsonObject.forEach { (k, v) -> put(k, v) } }
+
+/**
+ * Creates a new [ObjectNode] containing elements from the receiver map.
+ *
+ * *Simple Example*
+ * ```kt
+ * mapOf("a" to 1, "b" to 2, "c" to 3).toJsonObject() // {"a": 1, "b": 2, "c": 3}
+ * ```
+ *
+ * @return A new [ObjectNode] containing elements from the receiver stream.
+ *
+ * @since v3.3.0
+ */
+inline fun Map<String, Any?>.toJsonObject() =
+  Json.newObject { this@toJsonObject.forEach { (k, v) -> put(k, v) } }
+
+/**
  * Sets the given key/value pair on this [ObjectNode].
  *
  * @param key Key to set the new value under.
@@ -175,8 +230,9 @@ inline fun ObjectNode.putIfNN(key: String, value: JsonNode?) =
 inline fun ObjectNode.putIfNN(key: String, value: Any?): ObjectNode =
   if (value != null) put(key, value) else this
 
-fun ObjectNode.put(key: String, value: Any): ObjectNode =
+fun ObjectNode.put(key: String, value: Any?): ObjectNode =
   when (value) {
+    null          -> putNull(key)
     is String     -> put(key, value)
     is JsonNode   -> set(key, value)
     is Int        -> put(key, value)

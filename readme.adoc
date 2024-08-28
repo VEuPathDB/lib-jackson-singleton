@@ -1,29 +1,49 @@
 = Jackson Singleton Access
 :source-highlighter: highlightjs
+// Actual lib version
+:version-actual: 3.2.0
+// Lib feature version, used for doc links.
+:version-feature: 3.2.0
 
 image:https://img.shields.io/github/license/veupathdb/lib-jackson-singleton[]
-image:https://img.shields.io/github/v/tag/veupathdb/lib-jackson-singleton[]
+image:https://img.shields.io/badge/version-{version-actual}-blue[Version]
+image:https://img.shields.io/badge/jvm-21-rebeccapurple[Required JVM Version]
+image:https://img.shields.io/badge/api-docs-%23D2122E[API Docs, link="https://veupathdb.github.io/lib-jackson-singleton/v{version-feature}"]
 
-
-Provides a singleton over FasterXML Jackson's JSON api.
+Provides a singleton over a universally configured FasterXML Jackson JSON
+`ObjectMapper` instance API.
 
 This is intended to unify the access of Jackson object mappers to avoid multiple
 separately configured instances floating about in a single project.
 
-Provides several helpers for both Kotlin and Java.
-
 == Usage
+
+.build.gradle.kts
+[source, kotlin, subs="attributes"]
+----
+dependencies {
+  implementation("org.veupathdb.lib:jackson-singleton:{version-actual}")
+}
+----
+
+=== Examples
 
 [source, kotlin]
 ----
 import org.veupathdb.lib.jackson.Json
 
-// Creates a JSON object
+// Creates a new ObjectNode representing the JSON:
+// {
+//   "key": "value"
+// }
 fun createObject(): ObjectNode = Json.new {
   put("key", "value")
 }
 
-// Parses a `Person` instance
+// Parses a `Person` instance.
+//
+// This method uses the return type Person to shortcut
+// to Mapper.readValue(inputStream, Person::class.java)
 fun parseJson(): Person =
   Json.parse(File("foo.json").inputStream())
 ----
