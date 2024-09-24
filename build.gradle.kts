@@ -1,12 +1,11 @@
 plugins {
-  `java-library`
   `maven-publish`
   kotlin("jvm") version "2.0.20"
   id("org.jetbrains.dokka") version "1.9.20"
 }
 
 group = "org.veupathdb.lib"
-version = "3.2.0"
+version = "3.2.1"
 
 repositories {
   mavenCentral()
@@ -23,17 +22,15 @@ dependencies {
 }
 
 java {
-  toolchain {
-    languageVersion.set(JavaLanguageVersion.of(21))
-    vendor.set(JvmVendorSpec.AMAZON)
-  }
-
   withSourcesJar()
   withJavadocJar()
 }
 
 kotlin {
-  jvmToolchain(21)
+  jvmToolchain {
+    languageVersion.set(JavaLanguageVersion.of(21))
+    vendor.set(JvmVendorSpec.AMAZON)
+  }
 
   compilerOptions {
     optIn = listOf("kotlin.contracts.ExperimentalContracts")
