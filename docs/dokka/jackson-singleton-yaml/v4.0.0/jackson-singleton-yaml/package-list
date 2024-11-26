@@ -50,9 +50,9 @@ $dokka.location:org.veupathdb.lib.jackson.yaml//putUnsignedIfNN/com.fasterxml.ja
 $dokka.location:org.veupathdb.lib.jackson.yaml//toJsonArray/kotlin.Array[kotlin.Any?]#/PointingToDeclaration/jackson-singleton-yaml/org.veupathdb.lib.jackson.yaml/to-json-array.html
 $dokka.location:org.veupathdb.lib.jackson.yaml//toJsonArray/kotlin.collections.Iterable[kotlin.Any?]#kotlin.Int/PointingToDeclaration/jackson-singleton-yaml/org.veupathdb.lib.jackson.yaml/to-json-array.html
 $dokka.location:org.veupathdb.lib.jackson.yaml//toJsonArray/kotlin.sequences.Sequence[kotlin.Any?]#kotlin.Int/PointingToDeclaration/jackson-singleton-yaml/org.veupathdb.lib.jackson.yaml/to-json-array.html
-$dokka.location:org.veupathdb.lib.jackson.yaml//toJsonObject/kotlin.collections.Iterable[kotlin.Pair[kotlin.String,kotlin.Any?]]#/PointingToDeclaration/jackson-singleton-yaml/org.veupathdb.lib.jackson.yaml/to-json-object.html
-$dokka.location:org.veupathdb.lib.jackson.yaml//toJsonObject/kotlin.collections.Map[kotlin.String,kotlin.Any?]#/PointingToDeclaration/jackson-singleton-yaml/org.veupathdb.lib.jackson.yaml/to-json-object.html
-$dokka.location:org.veupathdb.lib.jackson.yaml//toJsonObject/kotlin.sequences.Sequence[kotlin.Pair[kotlin.String,kotlin.Any?]]#/PointingToDeclaration/jackson-singleton-yaml/org.veupathdb.lib.jackson.yaml/to-json-object.html
+$dokka.location:org.veupathdb.lib.jackson.yaml//toYamlObject/kotlin.collections.Iterable[kotlin.Pair[kotlin.String,kotlin.Any?]]#/PointingToDeclaration/jackson-singleton-yaml/org.veupathdb.lib.jackson.yaml/to-yaml-object.html
+$dokka.location:org.veupathdb.lib.jackson.yaml//toYamlObject/kotlin.collections.Map[kotlin.String,kotlin.Any?]#/PointingToDeclaration/jackson-singleton-yaml/org.veupathdb.lib.jackson.yaml/to-yaml-object.html
+$dokka.location:org.veupathdb.lib.jackson.yaml//toYamlObject/kotlin.sequences.Sequence[kotlin.Pair[kotlin.String,kotlin.Any?]]#/PointingToDeclaration/jackson-singleton-yaml/org.veupathdb.lib.jackson.yaml/to-yaml-object.html
 $dokka.location:org.veupathdb.lib.jackson.yaml/Yaml///PointingToDeclaration/jackson-singleton-yaml/org.veupathdb.lib.jackson.yaml/-yaml/index.html
 $dokka.location:org.veupathdb.lib.jackson.yaml/Yaml/Mapper/#/PointingToDeclaration/jackson-singleton-yaml/org.veupathdb.lib.jackson.yaml/-yaml/-mapper.html
 $dokka.location:org.veupathdb.lib.jackson.yaml/Yaml/convert/#kotlin.Any/PointingToDeclaration/jackson-singleton-yaml/org.veupathdb.lib.jackson.yaml/-yaml/convert.html

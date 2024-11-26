@@ -1,3 +1,3 @@
 dependencies {
-  api(project(":lib:jackson-singleton-common"))
+  implementation(project(":lib:jackson-singleton-common"))
 }

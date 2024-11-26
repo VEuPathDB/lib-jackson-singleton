@@ -33,7 +33,7 @@ import org.veupathdb.lib.jackson.common.putUnsignedIfNN as cPutUnsignedIfNN
  *
  * @since v3.3.0
  */
-inline fun Sequence<Pair<String, Any?>>.toJsonObject() = toJsonObject(Yaml::newObject)
+inline fun Sequence<Pair<String, Any?>>.toYamlObject() = toJsonObject(Yaml::newObject)
 
 /**
  * Creates a new [ObjectNode] containing elements for each of the key/value
@@ -52,7 +52,7 @@ inline fun Sequence<Pair<String, Any?>>.toJsonObject() = toJsonObject(Yaml::newO
  *
  * @since v3.3.0
  */
-inline fun Iterable<Pair<String, Any?>>.toJsonObject() = toJsonObject(Yaml::newObject)
+inline fun Iterable<Pair<String, Any?>>.toYamlObject() = toJsonObject(Yaml::newObject)
 
 /**
  * Creates a new [ObjectNode] containing elements from the receiver map.
@@ -66,7 +66,7 @@ inline fun Iterable<Pair<String, Any?>>.toJsonObject() = toJsonObject(Yaml::newO
  *
  * @since v3.3.0
  */
-inline fun Map<String, Any?>.toJsonObject() = toJsonObject(Yaml::newObject)
+inline fun Map<String, Any?>.toYamlObject() = toJsonObject(Yaml::newObject)
 
 // endregion Collecting
 

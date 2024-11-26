@@ -1,5 +1,5 @@
 dependencies {
-  api(project(":lib:jackson-singleton-common"))
+  implementation(project(":lib:jackson-singleton-common"))
   api("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml")
 
   testImplementation(libs.test.junit)

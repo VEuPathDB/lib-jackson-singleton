@@ -1,7 +1,7 @@
 = Jackson Singleton Access
 :source-highlighter: highlightjs
 // Actual lib version
-:version-actual: 4.0.0
+:version-actual: 4.0.1
 // Lib feature version, used for doc links.
 :version-feature: 4.0.0
 
@@ -59,3 +59,106 @@ fun createObject(): ObjectNode = Json.new {
 fun parseJson(): Person =
   Json.parse(File("foo.json").inputStream())
 ----
+
+=== Features
+
+==== Preconfigured ObjectMapper Singleton
+
+All submodules include an `ObjectMapper` instance configured with the standard
+Java8+ module set along with Kotlin specific extras.
+
+.Modules
+* `jackson-datatype-json-org` - org.json library compatibility
+* `jackson-datatype-jsr310` - Java8+ datetime type handling
+* `jackson-datatype-jdk8` - Support for Java8+ `Optional` types.
+* `jackson-module-kotlin` - Kotlin extras and type support.
+* `jackson-module-parameter-names` - Support for parameter name mapping.
+
+==== Node Constructors
+
+Includes convenience methods for creating and configuring Jackson type
+instances.
+
+[source, kotlin]
+----
+// Create an empty array
+val jsonArray = Json.newArray()
+
+// Create an object using a custom constructor function
+val jsonObject = Json.newObject {
+  put("hello", "goodbye")
+}
+
+// Auto-typed parsing
+val person: Person = Json.parse("""{"name":"Bernard"}""")
+----
+
+==== Mixins
+
+===== Conversion
+
+Includes conversion mixins for collections and sequences to `ArrayNode`
+instances as well as from maps or streams of `Pair` instances to `ObjectNode`
+instances.
+
+[source, kotlin]
+----
+// Convert an iterable to a JSON array.
+val jsonArray = listOf("hello", "goodbye").toJsonArray()
+
+// Convert a map to a YAML object.
+val jsonObject = mapOf("hello" to "goodbye").toYamlObject()
+----
+
+===== Jackson Extensions
+
+Adds mixins for Jackson types to support Kotlin unsigned types as well as
+convenience functions for common operations, such as appending values if
+not-null.
+
+[source, kotlin]
+----
+fun makeObject(): ObjectNode = Json.new {
+  putIfNN("something", null) // put if not null
+}
+----
+
+== Development
+
+=== Project Structure
+
+[source, sh]
+----
+lib/
+  |- common/  # Core/shared functionality.  Most functions are implemented here.
+  |- json/    # JSON object mapper and function mirrors.
+  |- yaml/    # YAML object mapper and function mirrors.
+----
+
+=== Function Mirroring
+
+The data format subprojects 'mirror' the functions defined in the common library
+injecting the correct `ObjectMapper` instance for their target data format.
+
+For example, the common library provides a `Sequence` to `JsonArray` mixin
+function, but differs from the signature of the parallel function in the JSON
+library in that the common implementation also takes a constructor function that
+it uses to get the correct `JsonNode` instance from.  The JSON parallel
+signature omits the constructor function as it passes the `Json::newArray`
+function for that parameter.
+
+== License
+
+Copyright (C) 2022 VEuPathDB
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+this program.  If not, see <https://www.gnu.org/licenses/>.
