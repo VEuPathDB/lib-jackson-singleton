@@ -1,14 +1,13 @@
 = Jackson Singleton Access
 :source-highlighter: highlightjs
 // Actual lib version
-:version-actual: 3.2.0
+:version-actual: 4.0.0
 // Lib feature version, used for doc links.
-:version-feature: 3.2.0
+:version-feature: 4.0.0
 
 image:https://img.shields.io/github/license/veupathdb/lib-jackson-singleton[]
 image:https://img.shields.io/badge/version-{version-actual}-blue[Version]
 image:https://img.shields.io/badge/jvm-21-rebeccapurple[Required JVM Version]
-image:https://img.shields.io/badge/api-docs-%23D2122E[API Docs, link="https://veupathdb.github.io/lib-jackson-singleton/v{version-feature}"]
 
 Provides a singleton over a universally configured FasterXML Jackson JSON
 `ObjectMapper` instance API.
@@ -25,9 +24,19 @@ APIs in Kotlin.
 [source, kotlin, subs="attributes"]
 ----
 dependencies {
-  implementation("org.veupathdb.lib:jackson-singleton:{version-actual}")
+  // For JSON operations
+  implementation("org.veupathdb.lib:jackson-singleton-json:{version-actual}")
+  // For YAML operations
+  implementation("org.veupathdb.lib:jackson-singleton-yaml:{version-actual}")
 }
 ----
+
+=== API Docs
+
+* https://veupathdb.github.io/lib-jackson-singleton/jackson-singleton-common/v{version-feature}[Common Functionality]
+* https://veupathdb.github.io/lib-jackson-singleton/jackson-singleton-json/v{version-feature}[JSON Operations]
+* https://veupathdb.github.io/lib-jackson-singleton/jackson-singleton-yaml/v{version-feature}[YAML Operations]
+
 
 === Examples
 
