@@ -4,8 +4,6 @@ package org.veupathdb.lib.jackson.common
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.node.ArrayNode
-import com.fasterxml.jackson.databind.node.ObjectNode
-import com.fasterxml.jackson.module.kotlin.contains
 import java.math.BigDecimal
 import java.math.BigInteger
 import kotlin.math.max
