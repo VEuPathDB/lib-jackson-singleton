@@ -24,10 +24,10 @@ import org.veupathdb.lib.jackson.common.addUnsignedIfNN as cAddUnsignedIfNN
  *
  * @return A new [ArrayNode] containing elements from the receiver stream.
  *
- * @since v3.3.0
+ * @since v4.0.0
  */
 @JvmOverloads
-inline fun Sequence<Any?>.toJsonArray(initialSize: Int = 8) = toJsonArray(initialSize, Yaml::newArray)
+inline fun Sequence<Any?>.toYamlArray(initialSize: Int = 8) = toJsonArray(initialSize, Yaml::newArray)
 
 /**
  * Creates a new [ArrayNode] containing elements from the receiver stream.
@@ -37,10 +37,10 @@ inline fun Sequence<Any?>.toJsonArray(initialSize: Int = 8) = toJsonArray(initia
  *
  * @return A new [ArrayNode] containing elements from the receiver stream.
  *
- * @since v3.3.0
+ * @since v4.0.0
  */
 @JvmOverloads
-inline fun Iterable<Any?>.toJsonArray(initialSize: Int = 8) = toJsonArray(initialSize, Yaml::newArray)
+inline fun Iterable<Any?>.toYamlArray(initialSize: Int = 8) = toJsonArray(initialSize, Yaml::newArray)
 
 /**
  * Creates a new [ArrayNode] containing elements from the receiver array.
@@ -49,7 +49,7 @@ inline fun Iterable<Any?>.toJsonArray(initialSize: Int = 8) = toJsonArray(initia
  *
  * @since v4.0.0
  */
-inline fun Array<Any?>.toJsonArray() = toJsonArray(Yaml::newArray)
+inline fun Array<Any?>.toYamlArray() = toJsonArray(Yaml::newArray)
 
 // endregion Stream Collecting
 
@@ -62,7 +62,7 @@ inline fun Array<Any?>.toJsonArray() = toJsonArray(Yaml::newArray)
  *
  * @return This [ArrayNode].
  *
- * @since v3.3.0
+ * @since v4.0.0
  */
 inline fun ArrayNode.add(value: Byte) = cAdd(value)
 
@@ -73,7 +73,7 @@ inline fun ArrayNode.add(value: Byte) = cAdd(value)
  *
  * @return This [ArrayNode].
  *
- * @since v3.3.0
+ * @since v4.0.0
  */
 inline fun ArrayNode.add(value: Any?) = cAdd(value)
 
@@ -138,7 +138,7 @@ inline fun ArrayNode.addUnsigned(value: ULong) = cAddUnsigned(value)
  *
  * @return This [ArrayNode].
  *
- * @since v3.3.0
+ * @since v4.0.0
  */
 inline fun ArrayNode.addIfNN(value: Boolean?) = cAddIfNN(value)
 
@@ -149,7 +149,7 @@ inline fun ArrayNode.addIfNN(value: Boolean?) = cAddIfNN(value)
  *
  * @return This [ArrayNode].
  *
- * @since v3.3.0
+ * @since v4.0.0
  */
 inline fun ArrayNode.addIfNN(value: Byte?) = cAddIfNN(value)
 
@@ -160,7 +160,7 @@ inline fun ArrayNode.addIfNN(value: Byte?) = cAddIfNN(value)
  *
  * @return This [ArrayNode].
  *
- * @since v3.3.0
+ * @since v4.0.0
  */
 inline fun ArrayNode.addIfNN(value: Short?) = cAddIfNN(value)
 
@@ -171,7 +171,7 @@ inline fun ArrayNode.addIfNN(value: Short?) = cAddIfNN(value)
  *
  * @return This [ArrayNode].
  *
- * @since v3.3.0
+ * @since v4.0.0
  */
 inline fun ArrayNode.addIfNN(value: Int?) = cAddIfNN(value)
 
@@ -182,7 +182,7 @@ inline fun ArrayNode.addIfNN(value: Int?) = cAddIfNN(value)
  *
  * @return This [ArrayNode].
  *
- * @since v3.3.0
+ * @since v4.0.0
  */
 inline fun ArrayNode.addIfNN(value: Long?) = cAddIfNN(value)
 
@@ -193,7 +193,7 @@ inline fun ArrayNode.addIfNN(value: Long?) = cAddIfNN(value)
  *
  * @return This [ArrayNode].
  *
- * @since v3.3.0
+ * @since v4.0.0
  */
 inline fun ArrayNode.addIfNN(value: Float?) = cAddIfNN(value)
 
@@ -204,7 +204,7 @@ inline fun ArrayNode.addIfNN(value: Float?) = cAddIfNN(value)
  *
  * @return This [ArrayNode].
  *
- * @since v3.3.0
+ * @since v4.0.0
  */
 inline fun ArrayNode.addIfNN(value: Double?) = cAddIfNN(value)
 
@@ -267,7 +267,7 @@ inline fun ArrayNode.addUnsignedIfNN(value: ULong?) = cAddUnsignedIfNN(value)
  *
  * @return This [ArrayNode].
  *
- * @since v3.3.0
+ * @since v4.0.0
  */
 inline fun ArrayNode.addIfNN(value: BigInteger?) = cAddIfNN(value)
 
@@ -278,7 +278,7 @@ inline fun ArrayNode.addIfNN(value: BigInteger?) = cAddIfNN(value)
  *
  * @return This [ArrayNode].
  *
- * @since v3.3.0
+ * @since v4.0.0
  */
 inline fun ArrayNode.addIfNN(value: BigDecimal?) = cAddIfNN(value)
 
@@ -289,7 +289,7 @@ inline fun ArrayNode.addIfNN(value: BigDecimal?) = cAddIfNN(value)
  *
  * @return This [ArrayNode].
  *
- * @since v3.3.0
+ * @since v4.0.0
  */
 inline fun ArrayNode.addIfNN(value: String?) = cAddIfNN(value)
 
@@ -300,7 +300,7 @@ inline fun ArrayNode.addIfNN(value: String?) = cAddIfNN(value)
  *
  * @return This [ArrayNode].
  *
- * @since v3.3.0
+ * @since v4.0.0
  */
 inline fun ArrayNode.addIfNN(value: JsonNode?) = cAddIfNN(value)
 

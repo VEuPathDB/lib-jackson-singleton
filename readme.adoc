@@ -1,7 +1,7 @@
 = Jackson Singleton Access
 :source-highlighter: highlightjs
 // Actual lib version
-:version-actual: 4.0.1
+:version-actual: 4.0.2
 // Lib feature version, used for doc links.
 :version-feature: 4.0.0
 

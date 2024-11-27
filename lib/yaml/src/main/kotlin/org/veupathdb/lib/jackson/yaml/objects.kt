@@ -31,7 +31,7 @@ import org.veupathdb.lib.jackson.common.putUnsignedIfNN as cPutUnsignedIfNN
  * @return A new [ObjectNode] containing elements for each of the key/value
  * [Pair] instances in the receiver stream.
  *
- * @since v3.3.0
+ * @since v4.0.0
  */
 inline fun Sequence<Pair<String, Any?>>.toYamlObject() = toJsonObject(Yaml::newObject)
 
@@ -50,7 +50,7 @@ inline fun Sequence<Pair<String, Any?>>.toYamlObject() = toJsonObject(Yaml::newO
  * @return A new [ObjectNode] containing elements for each of the key/value
  * [Pair] instances in the receiver stream.
  *
- * @since v3.3.0
+ * @since v4.0.0
  */
 inline fun Iterable<Pair<String, Any?>>.toYamlObject() = toJsonObject(Yaml::newObject)
 
@@ -64,7 +64,7 @@ inline fun Iterable<Pair<String, Any?>>.toYamlObject() = toJsonObject(Yaml::newO
  *
  * @return A new [ObjectNode] containing elements from the receiver stream.
  *
- * @since v3.3.0
+ * @since v4.0.0
  */
 inline fun Map<String, Any?>.toYamlObject() = toJsonObject(Yaml::newObject)
 
@@ -81,7 +81,7 @@ inline fun Map<String, Any?>.toYamlObject() = toJsonObject(Yaml::newObject)
  *
  * @return This [ObjectNode].
  *
- * @since v2.1.0
+ * @since v4.0.0
  */
 inline fun ObjectNode.put(key: String, value: Byte) = cPut(key, value)
 
@@ -94,7 +94,7 @@ inline fun ObjectNode.put(key: String, value: Byte) = cPut(key, value)
  *
  * @return This [ObjectNode].
  *
- * @since v2.1.0
+ * @since v4.0.0
  */
 fun ObjectNode.put(key: String, value: Any?) = cPut(key, value)
 
@@ -170,7 +170,7 @@ inline fun ObjectNode.putUnsigned(key: String, value: ULong) = cPutUnsigned(key,
  *
  * @return This [ObjectNode].
  *
- * @since v2.1.0
+ * @since v4.0.0
  */
 inline fun ObjectNode.putIfNN(key: String, value: Boolean?) = cPutIfNN(key, value)
 
@@ -184,7 +184,7 @@ inline fun ObjectNode.putIfNN(key: String, value: Boolean?) = cPutIfNN(key, valu
  *
  * @return This [ObjectNode].
  *
- * @since v2.1.0
+ * @since v4.0.0
  */
 inline fun ObjectNode.putIfNN(key: String, value: Byte?) = cPutIfNN(key, value)
 
@@ -198,7 +198,7 @@ inline fun ObjectNode.putIfNN(key: String, value: Byte?) = cPutIfNN(key, value)
  *
  * @return This [ObjectNode].
  *
- * @since v2.1.0
+ * @since v4.0.0
  */
 inline fun ObjectNode.putIfNN(key: String, value: Short?) = cPutIfNN(key, value)
 
@@ -212,7 +212,7 @@ inline fun ObjectNode.putIfNN(key: String, value: Short?) = cPutIfNN(key, value)
  *
  * @return This [ObjectNode].
  *
- * @since v2.1.0
+ * @since v4.0.0
  */
 inline fun ObjectNode.putIfNN(key: String, value: Int?) = cPutIfNN(key, value)
 
@@ -226,7 +226,7 @@ inline fun ObjectNode.putIfNN(key: String, value: Int?) = cPutIfNN(key, value)
  *
  * @return This [ObjectNode].
  *
- * @since v2.1.0
+ * @since v4.0.0
  */
 inline fun ObjectNode.putIfNN(key: String, value: Long?) = cPutIfNN(key, value)
 
@@ -240,7 +240,7 @@ inline fun ObjectNode.putIfNN(key: String, value: Long?) = cPutIfNN(key, value)
  *
  * @return This [ObjectNode].
  *
- * @since v2.1.0
+ * @since v4.0.0
  */
 inline fun ObjectNode.putIfNN(key: String, value: Float?) = cPutIfNN(key, value)
 
@@ -254,7 +254,7 @@ inline fun ObjectNode.putIfNN(key: String, value: Float?) = cPutIfNN(key, value)
  *
  * @return This [ObjectNode].
  *
- * @since v2.1.0
+ * @since v4.0.0
  */
 inline fun ObjectNode.putIfNN(key: String, value: Double?) = cPutIfNN(key, value)
 
@@ -332,7 +332,7 @@ inline fun ObjectNode.putUnsignedIfNN(key: String, value: ULong?) = cPutUnsigned
  *
  * @return This [ObjectNode].
  *
- * @since v2.1.0
+ * @since v4.0.0
  */
 inline fun ObjectNode.putIfNN(key: String, value: BigInteger?) = cPutIfNN(key, value)
 
@@ -346,7 +346,7 @@ inline fun ObjectNode.putIfNN(key: String, value: BigInteger?) = cPutIfNN(key, v
  *
  * @return This [ObjectNode].
  *
- * @since v2.1.0
+ * @since v4.0.0
  */
 inline fun ObjectNode.putIfNN(key: String, value: BigDecimal?) = cPutIfNN(key, value)
 
@@ -360,7 +360,7 @@ inline fun ObjectNode.putIfNN(key: String, value: BigDecimal?) = cPutIfNN(key, v
  *
  * @return This [ObjectNode].
  *
- * @since v2.1.0
+ * @since v4.0.0
  */
 inline fun ObjectNode.putIfNN(key: String, value: String?) = cPutIfNN(key, value)
 
@@ -374,7 +374,7 @@ inline fun ObjectNode.putIfNN(key: String, value: String?) = cPutIfNN(key, value
  *
  * @return This [ObjectNode].
  *
- * @since v2.1.0
+ * @since v4.0.0
  */
 inline fun ObjectNode.putIfNN(key: String, value: JsonNode?) = cPutIfNN(key, value)
 
@@ -388,7 +388,7 @@ inline fun ObjectNode.putIfNN(key: String, value: JsonNode?) = cPutIfNN(key, val
  *
  * @return This [ObjectNode].
  *
- * @since v2.1.0
+ * @since v4.0.0
  */
 inline fun ObjectNode.putIfNN(key: String, value: Any?) = cPutIfNN(key, value)
 
@@ -406,7 +406,7 @@ inline fun ObjectNode.putIfNN(key: String, value: Any?) = cPutIfNN(key, value)
  *
  * @return This [ObjectNode].
  *
- * @since v2.1.0
+ * @since v4.0.0
  */
 inline fun <T> ObjectNode.putIfNN(k: String, v: T?, f: (T) -> Any?) = cPutIfNN(k, v, f)
 

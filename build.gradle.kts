@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "org.veupathdb.lib"
-version = "4.0.1"
+version = "4.0.2"
 
 allprojects {
   repositories {
@@ -23,6 +23,9 @@ configure(listOf(
   apply(plugin = "org.jetbrains.kotlin.jvm")
   apply(plugin = "org.jetbrains.dokka")
   apply(plugin = "maven-publish")
+
+  group = rootProject.group
+  version = rootProject.version
 
   kotlin {
     compilerOptions {
