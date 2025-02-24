@@ -1,4 +1,4 @@
 [libraries]
 jackson = { group = "com.fasterxml.jackson", name = "jackson-bom", version = "2.18.2" }
 
-test-junit = { group = "org.junit.jupiter", name = "junit-jupiter", version = "5.11.4" }
+test-junit = { group = "org.junit.jupiter", name = "junit-jupiter", version = "5.12.0" }
