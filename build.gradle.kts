@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
   `maven-publish`
-  kotlin("jvm") version "2.2.20"
+  kotlin("jvm") version "2.2.21"
   id("org.jetbrains.dokka") version "2.1.0"
 }
 
