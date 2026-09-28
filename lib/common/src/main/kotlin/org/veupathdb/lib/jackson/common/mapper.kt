@@ -12,6 +12,8 @@ import com.fasterxml.jackson.module.kotlin.KotlinFeature
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule
 import java.nio.file.Path
+import java.text.SimpleDateFormat
+import java.util.TimeZone
 
 fun <T : ObjectMapper> T.initSharedConfig() = also {
   it.registerModule(JsonOrgModule())
@@ -34,4 +36,7 @@ fun <T : ObjectMapper> T.initSharedConfig() = also {
         }
       })
     })
+
+  it.dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+    .apply { timeZone = TimeZone.getDefault() }
 }

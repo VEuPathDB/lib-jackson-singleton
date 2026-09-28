@@ -1,9 +1,9 @@
 = Jackson Singleton Access
 :source-highlighter: highlightjs
 // Actual lib version
-:version-actual: 4.0.3
+:version-actual: 4.2.0
 // Lib feature version, used for doc links.
-:version-feature: 4.0.0
+:version-feature: 4.2.0
 
 image:https://img.shields.io/github/license/veupathdb/lib-jackson-singleton[]
 image:https://img.shields.io/badge/version-{version-actual}-blue[Version]
