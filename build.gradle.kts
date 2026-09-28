@@ -42,9 +42,14 @@ configure(listOf(
     withJavadocJar()
   }
 
-  tasks.dokkaHtml {
+
+
+  dokka {
     val featVersion = (rootProject.version as String).substring(0, (rootProject.version as String).lastIndexOf('.')) + ".0"
-    outputDirectory.set(file("${rootDir}/docs/dokka/${this@configure.name}/v${featVersion}"))
+
+    dokkaPublications.html {
+      outputDirectory.set(file("${rootDir}/docs/dokka/${this@configure.name}/v${featVersion}"))
+    }
   }
 
   publishing {

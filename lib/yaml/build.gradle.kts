@@ -11,6 +11,7 @@ dependencies {
   api("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml")
 
   testImplementation(libs.test.junit)
+  testRuntimeOnly(libs.test.launcher)
 }
 
 tasks.test {

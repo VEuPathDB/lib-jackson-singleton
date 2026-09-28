@@ -488,10 +488,10 @@ fun ObjectNode.mergeWith(
 ): ObjectNode {
   val out = newObj()
 
-  for ((key, value) in fields())
+  for ((key, value) in properties())
     out.set<ObjectNode>(key, value)
 
-  for ((key, value) in rhs.fields()) {
+  for ((key, value) in rhs.properties()) {
     if (!out.has(key)) {
       out.set<ObjectNode>(key, value)
       continue
