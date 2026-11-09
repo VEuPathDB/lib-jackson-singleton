@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
   `maven-publish`
   kotlin("jvm") version "2.4.21"
-  id("org.jetbrains.dokka") version "2.2.0"
+  id("org.jetbrains.dokka") version "2.3.0"
 }
 
 group = "org.veupathdb.lib"
